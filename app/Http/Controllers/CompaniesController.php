@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+
+
 use App\Models\Company;
 use Illuminate\Http\Request;
 
@@ -14,7 +16,9 @@ class CompaniesController extends Controller
      */
     public function index()
     {
-        //
+        //To Show all List of all company
+        $companies = Company::all();
+        return view('companies.index', compact('companies'));
     }
 
     /**
@@ -25,6 +29,7 @@ class CompaniesController extends Controller
     public function create()
     {
         //
+        return view('companies.create');
     }
 
     /**
@@ -46,7 +51,10 @@ class CompaniesController extends Controller
      */
     public function show(Company $company)
     {
-        //
+
+        //$company = Company::where('id', $company->id)->first();
+        $company = Company::find($company->id);
+        return view('companies.show',['company'=>$company]);
     }
 
     /**
