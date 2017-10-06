@@ -71,6 +71,8 @@
             </div>
         </nav>
        <div class="container">
+           @include('messages.errors')
+           @include('messages.success')
            <div class="row">
 
                @yield('content')
