@@ -1,7 +1,8 @@
 @extends('layouts.app')
 
 @section('content')
-    <div class="col-md-9 col-lg-9  co-sm-3 pull-left">
+
+    <div class="col-md-9 col-lg-9  col-sm-9 pull-left">
         <!-- Jumbotron -->
         <div class="jumbotron">
 
@@ -11,7 +12,8 @@
         </div>
 
         <!-- Example row of columns -->
-        <div class="row" style="background: #fff; margin: 10px;">
+        <div class="row col-md-12  col-lg-12  col-sm-12" style="background: #fff; margin: 10px;">
+
             @foreach($company->projects as $project)
                 <div class="col-lg-4">
                     <h2>{{ $project->name }}</h2>
@@ -33,29 +35,20 @@
         <div class="sidebar-module">
             <h4>Manage </h4>
             <ol class="list-unstyled">
-                <li><a href="#">Edit</a></li>
+                <li><a href="/companies/{{$company->id}}/edit">Edit</a></li>
                 <li><a href="#">Delete</a></li>
                 <li><a href="#">Add New Member</a></li>
             </ol>
         </div>
-        <div class="sidebar-module">
-            <h4>Member</h4>
-            <ol class="list-unstyled">
-                <li><a href="#">March 2014</a></li>
-                <li><a href="#">February 2014</a></li>
-                <li><a href="#">January 2014</a></li>
-                <li><a href="#">December 2013</a></li>
-                <li><a href="#">November 2013</a></li>
-                <li><a href="#">October 2013</a></li>
-                <li><a href="#">September 2013</a></li>
-                <li><a href="#">August 2013</a></li>
-                <li><a href="#">July 2013</a></li>
-                <li><a href="#">June 2013</a></li>
-                <li><a href="#">May 2013</a></li>
-                <li><a href="#">April 2013</a></li>
-            </ol>
-        </div>
-        
+        {{--<div class="sidebar-module">--}}
+            {{--<h4>Member</h4>--}}
+            {{--<ol class="list-unstyled">--}}
+                {{--<li><a href="#">March 2014</a></li>--}}
+                {{--<li><a href="#">February 2014</a></li>--}}
+               {{----}}
+            {{--</ol>--}}
+        {{--</div>--}}
+
     </div>
 
 @endsection
