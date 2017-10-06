@@ -12,7 +12,7 @@
 
                 <div class="form-group">
                     <label for="company-name">Name <span class="require">*</span></label>
-                    <input type="text" id="company-name" name="description" spellcheck="false" class="form-control" value="{{$company->name}}" placeholder="Enter Name" required>
+                    <input type="text" id="company-name" name="name" spellcheck="false" class="form-control" value="{{$company->name}}" placeholder="Enter Name" required>
                 </div>
 
                 <div class="form-group">
@@ -40,7 +40,7 @@
             <ol class="list-unstyled">
                 <li><a href="/companies/{{$company->id}}">View Companies</a></li>
                 <li><a href="/companies">All Companies</a></li>
-                
+
             </ol>
         </div>
 
