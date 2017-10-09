@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Company;
+
 use App\Models\Project;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -65,8 +66,8 @@ class ProjectsController extends Controller
             ]);
 
             if($project){
-                return redirect()->route('companies.show', ['company' => $project->id])
-                    ->with('success', 'Company Created successfully');
+                return redirect()->route('projects.show', ['project' => $project->id])
+                    ->with('success', 'Project Created successfully');
             }
         }
 
@@ -82,10 +83,11 @@ class ProjectsController extends Controller
      */
     public function show(Project $project)
     {
+       //$project = Project::where('id', $project->id)->first();
 
-        //$company = Company::where('id', $company->id)->first();
         $project = Project::find($project->id);
-        return view('projects.show',['project'=>$project]);
+        $comments = $project->comments;
+        return view('projects.show',['project'=>$project, 'comments'=>$comments]);
     }
 
     /**
@@ -121,7 +123,7 @@ class ProjectsController extends Controller
             return redirect()->route('projects.show',['project'=>$project->id])
                 ->with('success','Project Updated Successfully ');
         }
-        return back()->withInput();
+              return back()->withInput();
     }
 
     /**

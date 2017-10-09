@@ -16,12 +16,14 @@
             <a href="/projects/create" class="pull-right btn btn-default btn-sm">Add Project </a>
 
             <br>
+
+            {{--FORM COMMENT--}}
             <div class="row container-fluid">
                 <form method="post" action="{{route('comments.store')}}">
                     {{ csrf_field() }}
 
 
-                    <input type="hidden" name="commentable_type" value="Project">
+                    <input type="hidden" name="commentable_type" value="App\Project">
                     <input type="hidden" name="commentable_id" value="{{ $project->id }}">
 
                     {{----}}
@@ -48,19 +50,75 @@
                 </form>
             </div>
 
-
-
-
-
-            {{--@foreach($project->projects as $project)--}}
-                {{--<div class="col-lg-4">--}}
-                    {{--<h2>{{ $project->name }}</h2>--}}
-                    {{--<p>{{ $project->description }}</p>--}}
+            @include('messages.comments')
+            {{--@foreach($project->comments as $comment)--}}
+                {{--<div class="col-lg-4 col-md-4 col-sm-4">--}}
+                    {{--<h2>{{ $comment->body }}</h2>--}}
+                    {{--<p class="alert-danger">{{ $comment->url }}</p>--}}
                     {{--<p><a class="btn btn-primary" href="/projects/{{ $project->id }}" role="button">View Project</a></p>--}}
                 {{--</div>--}}
 
-            {{--@endforeach --}}
-        </div>
+            {{--@endforeach--}}
+
+
+
+            {{--<div class="row">--}}
+                {{--<div class="col-md-12 col-sm-12  col-xs-12 col-lg-12">--}}
+
+                    {{--<!-- Fluid width widget -->--}}
+                    {{--<div class="panel panel-default">--}}
+                        {{--<div class="panel-heading">--}}
+                            {{--<h3 class="panel-title">--}}
+                                {{--<span class="glyphicon glyphicon-comment"></span> --}}
+                                {{--Recent Comments--}}
+                            {{--</h3>--}}
+                        {{--</div>--}}
+                        {{--<div class="panel-body">--}}
+                            {{--<ul class="media-list">--}}
+
+
+                                {{--@foreach($project->comments as $comment)--}}
+
+                                    {{--<li class="media">--}}
+                                        {{--<div class="media-left">--}}
+                                            {{--<img src="http://placehold.it/60x60" class="img-circle">--}}
+                                        {{--</div>--}}
+                                        {{--<div class="media-body">--}}
+                                            {{--<h4 class="media-heading">--}}
+
+                                                {{--<a href="users/{{ $comment->user->id }}">--}}
+                                                    {{--{{ $comment->user->first_name }}   {{ $comment->user->last_name }}--}}
+
+                                                    {{---{{ $comment->user->email }}--}}
+
+                                                {{--</a>--}}
+                                                {{--<br>--}}
+                                                {{--<small>--}}
+                                                    {{--commented on {{ $comment->created_at }}--}}
+                                                {{--</small>--}}
+                                            {{--</h4>--}}
+                                            {{--<p>--}}
+                                                {{--{{ $comment->body }}--}}
+                                            {{--</p>--}}
+                                             {{--proof--}}
+                                            {{--<p>--}}
+                                                {{--{{ $comment->url }}--}}
+                                            {{--</p>--}}
+                                        {{--</div>--}}
+                                    {{--</li>--}}
+                                {{--@endforeach--}}
+
+                            {{--</ul>--}}
+
+                        {{--</div>--}}
+                    {{--</div>--}}
+                    {{--<!-- End fluid width widget -->--}}
+
+                {{--</div>--}}
+            {{--</div>--}}
+
+
+            </div>
     </div>
 
     {{--Side Bar--}}

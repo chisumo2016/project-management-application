@@ -13,8 +13,10 @@
                     <label for="project-name">Name <span class="require">*</span></label>
                     <input type="text" id="project-name" name="name" spellcheck="false" class="form-control"  placeholder="Enter Name" required>
                 </div>
+                @if($companies == null)
+                    <input type="hidden"  name="company_id" value="{{$company_id}}" class="form-control">
+                    @endif
 
-                <input type="hidden"  name="company_id" value="{{$company_id}}" >
 
                 @if($companies != null)
                     <div class="form-group">

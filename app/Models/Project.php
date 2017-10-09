@@ -32,6 +32,6 @@ class Project extends Model
 
      public  function  comments()
      {
-         return $this->morphMany('App\Comment', 'commentable');
+         return $this->morphMany('App\Models\Comment', 'commentable');
      }
 }
