@@ -79,12 +79,13 @@ class CompaniesController extends Controller
      */
     public function update(Request $request, Company $company)
     {
+        //Validate
         //
         $companyUpdate = Company::where('id',$company->id)->update([
             'name' =>$request->input('name'),
             'description' =>$request->input('description'),
         ]);
-        
+
         if($companyUpdate){
             return redirect()->route('companies.show',['company'=>$company->id])
                             ->with('success','Company Updated Successfully ');
@@ -101,5 +102,12 @@ class CompaniesController extends Controller
     public function destroy(Company $company)
     {
         //
+        $fidCompany = Company::find($company->id);
+        if($fidCompany->delete()){
+
+            //Redirect
+            return redirect()->route('companies.index')->with('success','Company deleted Successfully');
+        }
+            return back()->withInput()->with('error','Company could not be deleted');
     }
 }

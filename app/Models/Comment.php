@@ -17,9 +17,15 @@ class Comment extends Model
 
     ];
 
-    public  function  project()
+//    public  function  project()
+//    {
+//        return $this->belongsTo('App\Models\Project');
+//    }
+
+    public function user()
     {
-        return $this->belongsTo('App\Models\Project');
+        return $this->hasOne('\App\User', 'id', 'user_id');
     }
+
 
 }
