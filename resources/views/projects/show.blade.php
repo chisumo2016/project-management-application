@@ -13,7 +13,45 @@
 
         <!-- Example row of columns -->
         <div class="row col-md-12  col-lg-12  col-sm-12" style="background: #fff; margin: 10px;">
-            <li><a href="/projects/create/{{$project->id}}" class="pull-right btn btn-default btn-sm">Add New Project </a></li>
+            <a href="/projects/create" class="pull-right btn btn-default btn-sm">Add Project </a>
+
+            <br>
+            <div class="row container-fluid">
+                <form method="post" action="{{route('comments.store')}}">
+                    {{ csrf_field() }}
+
+
+                    <input type="hidden" name="commentable" value="Project">
+                    <input type="hidden" name="commentable_id" value="{{ $project->id }}">
+
+                    {{----}}
+                    {{--<div class="form-group">--}}
+                    {{--<label for="company-name">Url (proof of work done) <span class="require">*</span></label>--}}
+                    {{--<input type="text" id="company-name" name="name" spellcheck="false" class="form-control"  placeholder="Enter Url" required>--}}
+                    {{--</div>--}}
+
+                    <div class="form-group">
+
+                        <label for="company-content">Comment </label>
+                        <textarea name="body" id="comment-content"  style="resize: vertical"  rows="3" spellcheck="false" placeholder="Enter Commment" class="form-control autosize-target text-left"></textarea>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="comment-content">Proof of work done (Url/Photos) </label>
+                        <textarea name="url" id="comment-content"  rows="2" style="resize: vertical"  rows="5" spellcheck="false" placeholder="Enter URL or screenshoot" class="form-control autosize-target text-left"></textarea>
+                    </div>
+
+                    <div class="form-group">
+                        <input type="submit" class="btn btn-primary" value="submit"/>
+                    </div>
+
+                </form>
+            </div>
+
+
+
+
+
             {{--@foreach($project->projects as $project)--}}
                 {{--<div class="col-lg-4">--}}
                     {{--<h2>{{ $project->name }}</h2>--}}
