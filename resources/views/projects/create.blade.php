@@ -14,7 +14,7 @@
                     <input type="text" id="project-name" name="name" spellcheck="false" class="form-control"  placeholder="Enter Name" required>
                 </div>
 
-                <input type="hidden"  name="project_id" value="{{$project_id}}" >
+                <input type="hidden"  name="company_id" value="{{$company_id}}" >
 
                 <div class="form-group">
                     <label for="project-content">Description </label>
