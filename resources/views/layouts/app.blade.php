@@ -12,6 +12,8 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+
+    <script src="https://use.fontawesome.com/97562f4741.js"></script>
 </head>
 <body>
     <div id="app">
@@ -47,9 +49,9 @@
                             <li><a href="{{ route('register') }}">Register</a></li>
                         @else
 
-                            <li><a href="/companies">My Companies</a></li>
-                            <li><a href="/projects">Projects</a></li>
-                            <li><a href="/tasks">Task</a></li>
+                            <li><a href="/companies"><i class="fa fa-building" aria-hidden="true"></i> My Companies</a></li>
+                            <li><a href="/projects"> <i class="fa fa-briefcase" aria-hidden="true"></i> Projects</a></li>
+                            <li><a href="/tasks"><i class="fa fa-tasks" aria-hidden="true"></i> Task</a></li>
 
                             <li class="dropdown">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">

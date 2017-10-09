@@ -13,9 +13,11 @@
 
         <!-- Example row of columns -->
         <div class="row col-md-12  col-lg-12  col-sm-12" style="background: #fff; margin: 10px;">
-            <a href="/projects/create" class="pull-right btn btn-default btn-sm">Add Project </a>
+            {{--<a href="/projects/create" class="pull-right btn btn-default btn-sm">Add Project </a>--}}
 
             <br>
+
+            @include('messages.comments')
 
             {{--FORM COMMENT--}}
             <div class="row container-fluid">
@@ -50,7 +52,7 @@
                 </form>
             </div>
 
-            @include('messages.comments')
+
             {{--@foreach($project->comments as $comment)--}}
                 {{--<div class="col-lg-4 col-md-4 col-sm-4">--}}
                     {{--<h2>{{ $comment->body }}</h2>--}}
