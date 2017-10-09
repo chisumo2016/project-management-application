@@ -4,7 +4,7 @@
 
     <div class="col-md-9 col-lg-9  col-sm-9 pull-left">
         <!-- Jumbotron -->
-        <div class="jumbotron">
+        <div class="well well-lg">
 
             <h1>{{ $project->name }}</h1>
             <p class="lead">{{ $project->description }}</p>
@@ -37,10 +37,12 @@
             <ol class="list-unstyled">
 
                 <li><a href="/projects/{{$project->id}}/edit">Edit</a></li>
-                <li><a href="/projects/create">Add New Project </a></li>
-                <li><a href="/projects/create">Add New project</a></li>
-                <li><a href="/projects">List of projects</a></li>
+                <li><a href="/projects/create">Create New Project </a></li>
+                <li><a href="/projects">My projects</a></li>
+
                 <br>
+                {{--Only the person who created it--}}
+                @if($project->user_id === Auth::user()->id)
                 <li>
                     <a href="#" onclick="
                         var result = confirm('Are you sure you wish to delete this Projects?');
@@ -56,7 +58,11 @@
                         {{ csrf_field() }}
                     </form>
 
+
+
                 </li>
+
+                @endif
                 {{--<li><a href="#">Add New Member</a></li>--}}
             </ol>
         </div>
