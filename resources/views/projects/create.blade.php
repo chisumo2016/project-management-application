@@ -16,6 +16,18 @@
 
                 <input type="hidden"  name="company_id" value="{{$company_id}}" >
 
+                @if($companies != null)
+                    <div class="form-group">
+                        <label for="company-content">Select Company</label>
+                        <select name="company_id" id="" class="form-control">
+                            @foreach($companies as $company)
+                                <option value="{{$company->id}}">{{$company->name}}</option>
+                            @endforeach
+                        </select>
+                    </div>
+               @endif
+
+
                 <div class="form-group">
                     <label for="project-content">Description </label>
                     <textarea name="description" id="project-content"  style="resize: vertical"  rows="5" spellcheck="false" placeholder="Enter Description" class="form-control autosize-target text-left"></textarea>
