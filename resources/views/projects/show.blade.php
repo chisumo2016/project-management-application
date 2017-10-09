@@ -13,7 +13,7 @@
 
         <!-- Example row of columns -->
         <div class="row col-md-12  col-lg-12  col-sm-12" style="background: #fff; margin: 10px;">
-            <li><a href="/projects/create" class="pull-right btn btn-default btn-sm">Add New Project </a></li>
+            <li><a href="/projects/create/{{$company->id}}" class="pull-right btn btn-default btn-sm">Add New Project </a></li>
             @foreach($company->projects as $project)
                 <div class="col-lg-4">
                     <h2>{{ $project->name }}</h2>
@@ -37,7 +37,7 @@
             <ol class="list-unstyled">
 
                 <li><a href="/companies/{{$company->id}}/edit">Edit</a></li>
-                <li><a href="/projects/create/{{$company->id}}">Add New Project </a></li>
+                <li><a href="/projects/create">Add New Project </a></li>
                 <li><a href="/companies/create">Add New Company</a></li>
                 <li><a href="/companies">List of Companies</a></li>
                 <br>

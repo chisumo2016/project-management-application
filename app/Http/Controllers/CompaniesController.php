@@ -17,9 +17,13 @@ class CompaniesController extends Controller
      */
     public function index()
     {
-        //To Show all List of all company
-        $companies = Company::all();
-        return view('companies.index', compact('companies'));
+        //dump(Auth::user()->id));
+        //To Show all List of all company     $companies = Company::all();
+        if(Auth::check()){
+            $companies = Company::where('user_id', Auth::user()->id)->get();
+            return view('companies.index', compact('companies'));
+        }
+        return view('auth.login');
     }
 
     /**
