@@ -22,9 +22,14 @@ class Comment extends Model
 //        return $this->belongsTo('App\Models\Project');
 //    }
 
-    public function user()
+//    public function user()
+//    {
+//        return $this->hasOne('\App\User', 'id', 'user_id');
+//    }
+//
+    public function  commentable()
     {
-        return $this->hasOne('\App\User', 'id', 'user_id');
+        return $this->morphTo();
     }
 
 
