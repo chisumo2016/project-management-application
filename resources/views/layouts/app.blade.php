@@ -53,9 +53,27 @@
                             <li><a href="/projects"> <i class="fa fa-briefcase" aria-hidden="true"></i> Projects</a></li>
                             <li><a href="/tasks"><i class="fa fa-tasks" aria-hidden="true"></i> Task</a></li>
 
+                               {{--Check the user if is an admim--}}
+                              @if(Auth::user()->role_id ==1 )
+
+                                <li class="dropdown">
+                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+                                        <i class="fa fa-user" aria-hidden="true"></i>Admin<span class="caret"></span>
+                                    </a>
+
+                                    <ul class="dropdown-menu" role="menu">
+                                        <li><a href="/projects"> <i class="fa fa-briefcase" aria-hidden="true"></i>All Projects</a></li>
+                                        <li><a href="/projects"> <i class="fa fa-briefcase" aria-hidden="true"></i>All Users</a></li>
+                                        <li><a href="/projects"> <i class="fa fa-briefcase" aria-hidden="true"></i> Task</a></li>
+                                        <li><a href="/projects"> <i class="fa fa-briefcase" aria-hidden="true"></i> All Companies</a></li>
+                                    </ul>
+                                </li>
+                                  @endif
+
+
                             <li class="dropdown">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-                                    {{ Auth::user()->name }} <span class="caret"></span>
+                                    <i class="fa fa-user" aria-hidden="true"></i>{{ Auth::user()->name }} <span class="caret"></span>
                                 </a>
 
                                 <ul class="dropdown-menu" role="menu">
