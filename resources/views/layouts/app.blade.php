@@ -62,10 +62,11 @@
                                     </a>
 
                                     <ul class="dropdown-menu" role="menu">
-                                        <li><a href="/projects"> <i class="fa fa-briefcase" aria-hidden="true"></i>All Projects</a></li>
-                                        <li><a href="/projects"> <i class="fa fa-briefcase" aria-hidden="true"></i>All Users</a></li>
-                                        <li><a href="/projects"> <i class="fa fa-briefcase" aria-hidden="true"></i> Task</a></li>
-                                        <li><a href="/projects"> <i class="fa fa-briefcase" aria-hidden="true"></i> All Companies</a></li>
+                                        <li><a href="{{ route('projects.index') }}"> <i class="fa fa-briefcase" aria-hidden="true"> </i>All Projects</a></li>
+                                        <li><a href="{{ route('users.index') }}"> <i class="fa fa-users" aria-hidden="true"> </i>All Users</a></li>
+                                        <li><a href="{{ route('tasks.index') }}"> <i class="fa fa-tasks" aria-hidden="true"> </i> Task</a></li>
+                                        <li><a href="{{ route('companies.index') }}"> <i class="fa fa-building" aria-hidden="true"> </i> All Companies</a></li>
+                                        <li><a href="{{ route('roles.index') }}"> <i class="fa fa-envolope" aria-hidden="true"></i> All Roles</a></li>
                                     </ul>
                                 </li>
                                   @endif

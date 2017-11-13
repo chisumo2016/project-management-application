@@ -163,6 +163,33 @@
                 @endif
                 {{--<li><a href="#">Add New Member</a></li>--}}
             </ol>
+
+          <h4>Add Member</h4>
+            <div class="row">
+                <div class="col-lg-12 col-md-12 col-sm-12">
+                    <form action="{{route('projects.adduser', [$project->id])}}" id="add-user" method="POST">
+                        <div class="input-group">
+                            <input type="text" class="form-control" placeholder="Email">
+                            <span class="input-group-btn">
+                                <button class="btn btn-default" type="submit"> Add User</button>
+                            </span>
+                        </div>  <!--input-group-->
+                    </form>
+                </div><!--/ .col-lg-6 -->
+            </div><!--/ .row -->
+
+            <br>
+            <h4>Team Member</h4>
+            <ol class="list-unstyled">
+                <li><a href="#">Dave Partner</a></li>
+                <li><a href="#">Dave Partner</a></li>
+                <li><a href="#">Dave Partner</a></li>
+                <li><a href="#">Dave Partner</a></li>
+            </ol>
+
+
+
+
         </div>
         {{--<div class="sidebar-module">--}}
             {{--<h4>Member</h4>--}}
