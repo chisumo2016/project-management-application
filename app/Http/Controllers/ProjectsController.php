@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Company;
 
 use App\Models\Project;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Symfony\Component\HttpKernel\Profiler\Profile;
@@ -37,14 +38,22 @@ class ProjectsController extends Controller
      * @return \Illuminate\Http\Response
      */
 
-    public function  adduser()
+    public function  adduser(Request $request)
     {
+        // Add user to projects
+        //Take a project , add a user to it
+
+        $project = Project::find($request->input('project_id'));
+        if (Auth::user()->id ==  $project->user_id){
+
+            $user = User::where('email',$request->input('email'))->get();
+            if( $user &&  $project){
+                $project->users()->attach($user->id);
+            }
+        }
+
 
     }
-
-
-
-
 
 
 

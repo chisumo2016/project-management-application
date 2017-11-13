@@ -25,7 +25,7 @@ class Project extends Model
         return $this->belongsTo('App\Models\Company');
     }
 
-    public  function  user()
+    public  function  users()
     {
         return $this->belongsToMany('App\Models\User');
     }

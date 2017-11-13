@@ -167,9 +167,10 @@
           <h4>Add Member</h4>
             <div class="row">
                 <div class="col-lg-12 col-md-12 col-sm-12">
-                    <form action="{{route('projects.adduser', [$project->id])}}" id="add-user" method="POST">
+                    <form action="{{route('projects.adduser')}}" id="add-user" method="POST">
                         <div class="input-group">
-                            <input type="text" class="form-control" placeholder="Email">
+                            <input  class="form-control" name="project_id" type="hidden"  value="{{ $project->id }}">
+                            <input type="text" class="form-control" name="email" placeholder="Email">
                             <span class="input-group-btn">
                                 <button class="btn btn-default" type="submit"> Add User</button>
                             </span>
