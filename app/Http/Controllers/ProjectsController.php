@@ -5,8 +5,8 @@ namespace App\Http\Controllers;
 use App\Models\Company;
 
 use App\Models\Project;
+use App\Models\ProjetUser;
 use App\Models\User;
-
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Symfony\Component\HttpKernel\Profiler\Profile;
@@ -47,7 +47,18 @@ class ProjectsController extends Controller
         $project = Project::find($request->input('project_id'));
         if (Auth::user()->id ==  $project->user_id){
 
-            $user = User::where('email',$request->input('email'))->get();
+
+            $user = User::where('email',$request->input('email'))->first();  // single record
+
+            //check if user is already added to the project
+            $projectUser = ProjetUser::where('user_id', $user->id)->where('project_id', $project->id)->first();
+
+            if( $projectUser){
+                //If user already exists ,exit
+                return redirect()->route('projects.show', ['project' => $project->id])
+                    ->with('success', $request->input('email'). ' is already  a member of this project');
+            }
+
             if( $user &&  $project){
                 $project->users()->attach($user->id);
 

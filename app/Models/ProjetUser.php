@@ -7,6 +7,8 @@ use Illuminate\Database\Eloquent\Model;
 class ProjetUser extends Model
 {
     //
+
+   protected  $table = "project_user";
     // Mass Assigment
     protected  $fillable = [
 
