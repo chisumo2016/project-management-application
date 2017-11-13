@@ -6,6 +6,7 @@ use App\Models\Company;
 
 use App\Models\Project;
 use App\Models\User;
+
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Symfony\Component\HttpKernel\Profiler\Profile;
@@ -49,9 +50,14 @@ class ProjectsController extends Controller
             $user = User::where('email',$request->input('email'))->get();
             if( $user &&  $project){
                 $project->users()->attach($user->id);
+
+                return redirect()->route('projects.show', ['project' => $project->id])
+                    ->with('success', $request->input('email'). ' was added to the projects successfully');
             }
         }
 
+        return redirect()->route('projects.show', ['project' => $project->id])
+            ->with('errors', 'Error adding user to project ');
 
     }
 

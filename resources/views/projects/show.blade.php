@@ -168,6 +168,7 @@
             <div class="row">
                 <div class="col-lg-12 col-md-12 col-sm-12">
                     <form action="{{route('projects.adduser')}}" id="add-user" method="POST">
+                        {{ csrf_field() }}
                         <div class="input-group">
                             <input  class="form-control" name="project_id" type="hidden"  value="{{ $project->id }}">
                             <input type="text" class="form-control" name="email" placeholder="Email">
@@ -182,10 +183,12 @@
             <br>
             <h4>Team Member</h4>
             <ol class="list-unstyled">
-                <li><a href="#">Dave Partner</a></li>
-                <li><a href="#">Dave Partner</a></li>
-                <li><a href="#">Dave Partner</a></li>
-                <li><a href="#">Dave Partner</a></li>
+                @foreach($project->users as $user)
+                    <li><a href="#">{{ $user->email }}</a></li>
+                @endforeach
+                {{--<li><a href="#">Dave Partner</a></li>--}}
+                {{--<li><a href="#">Dave Partner</a></li>--}}
+                {{--<li><a href="#">Dave Partner</a></li>--}}
             </ol>
 
 
